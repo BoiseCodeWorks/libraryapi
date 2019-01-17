@@ -1,6 +1,8 @@
 namespace libraryapi.Models
 {
 
+
+
   public class Book
   {
 
@@ -10,7 +12,9 @@ namespace libraryapi.Models
 
     public string Description { get; set; }
 
-    // public int AuthorId { get; set; }
+    public int AuthorId { get; set; }
+
+    // public string ISBN { get; set; }
 
   }
 }
