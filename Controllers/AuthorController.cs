@@ -10,11 +10,11 @@ namespace libraryapi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class LibrarysController : ControllerBase
+  public class AuthorsController : ControllerBase
   {
-    private readonly LibraryRepository _repo;
+    private readonly AuthorRepository _repo;
 
-    public LibrarysController(LibraryRepository repo)
+    public AuthorsController(AuthorRepository repo)
     {
       _repo = repo;
     }
@@ -22,16 +22,16 @@ namespace libraryapi.Controllers
 
     // GET api/values
     [HttpGet]
-    public ActionResult<IEnumerable<Library>> Get()
+    public ActionResult<IEnumerable<Author>> Get()
     {
       return Ok(_repo.GetAll());
     }
 
     // GET api/values/5
     [HttpGet("{id}")]
-    public ActionResult<Library> Get(int id)
+    public ActionResult<Author> Get(int id)
     {
-      Library result = _repo.GetById(id);
+      Author result = _repo.GetById(id);
       if (result != null)
       {
         return Ok(result);
@@ -41,10 +41,10 @@ namespace libraryapi.Controllers
 
     // POST api/values
     [HttpPost]
-    public ActionResult<Library> Post([FromBody] Library value)
+    public ActionResult<Author> Post([FromBody] Author value)
     {
-      Library result = _repo.AddLibrary(value);
-      return Created("/api/library/" + result.Id, result);
+      Author result = _repo.AddAuthor(value);
+      return Created("/api/author/" + result.Id, result);
     }
 
     // PUT api/values/5
@@ -57,7 +57,7 @@ namespace libraryapi.Controllers
     [HttpDelete("{id}")]
     public ActionResult<string> Delete(int id)
     {
-      if (_repo.DeleteLibrary(id))
+      if (_repo.DeleteAuthor(id))
       {
         return Ok("Successfully deleted!");
       }

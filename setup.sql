@@ -1,0 +1,18 @@
+CREATE TABLE Library(
+  id int NOT NULL AUTO_INCREMENT, 
+  name VARCHAR(255), 
+  city VARCHAR(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE Book(
+  id int NOT NULL AUTO_INCREMENT, 
+  title VARCHAR(255), 
+  description VARCHAR(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE Author(
+  id int NOT NULL AUTO_INCREMENT, 
+  name VARCHAR(255), 
+  bio VARCHAR(255),
+  PRIMARY KEY(id)
+);
